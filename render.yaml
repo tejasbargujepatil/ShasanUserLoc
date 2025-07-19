@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: shasan-user-location
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node index.js
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: shasan-user-location-db
+          property: connectionString
